@@ -9,6 +9,7 @@ const WorkoutSchema = new Schema({
     },
 
     // excersizes: [],
+    
     type: {
         type: String,
         trim: true,
@@ -23,12 +24,12 @@ const WorkoutSchema = new Schema({
 
     duration: {
         type: Number,
-        required: "Enter a duration for workout"
+        required: "Enter duration for the workout"
     },
 
     weight: {
         type: Number,
-        required: "Enter a weight for workout"
+        required: "Enter weight for the workout"
     },
 
     reps: {
@@ -43,6 +44,7 @@ const WorkoutSchema = new Schema({
 
 });
 
+//this will be the function to add total weight and duration
 // db.workout.aggregate([
 //     {
 //         $addFields: {
