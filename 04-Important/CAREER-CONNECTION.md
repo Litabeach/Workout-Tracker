@@ -1,63 +1,49 @@
-# Career Connection: PWAs
+# Career Connection
 
-## Career Connection: PWAs
+## Career Connection
 
-![cs-logo](./assets/cs_logo.png)
+![Career Services Logo](./assets/cs_logo.png#right)
 
-### Introduction
+Now you're learning a cutting edge technology that is being quickly adapted by enterprise companies across the globe&mdash;NoSQL databases! We learned MongoDB along with an ORM called Mongoose, but there are also others out there which we'll look at in this section.
 
-You're covering Progressive Web Applications and are learning how to optimize legacy applications to ensure that they are more accessible to devices running on slower connections. We get it, at first, this might not seem like an incredibly exciting topic—but it's an incredibly important skillset to have as you start talking with prospective employers!
+But first, a little more about the professional use cases of a NoSQL database. Databases like MongoDB are being adopted by enterprise companies as a quick and easy way to spin up new applications. However, they are not without their criticisms. For example:
 
-In an ideal world, we'd all love to go out and write good code using the latest technologies, React, Express and others you might not even have heard of like GraphQL—the reality, however, is a little different. Many companies, even when writing new applications using the latest technologies, are still maintaining older applications written in legacy code. In all likelihood, these won't be React applications, but a mixture of vanilla JavaScript, jQuery and server-side languages like PHP instead of NodeJS.
+- **SQL databases are more mature**
 
-So when you go out on that job interview, remember to tell the interviewer what you can do for their legacy applications while _also_ developing their cutting-edge applications.
+  - It's not wrong. SQL databases have been around a long time and they are reliable and we know they work. So why change it? Arguably, a SQL database is not the right solution to every problem.
 
-#### Employer Competitive Advantage
+- **Building indexes is slow**
 
-Are you already looking at companies that you'd like to interview with? If not, then start with Step 1. If you already have a list of companies that you're interested in working for in the future, jump over to Step 2.
+  - If you have a large number of documents in a NoSQL database, the first build of an index will be very slow.
 
-#### Step 1
+- **Repetition of data**
 
-* Head over the [LinkedIn Jobs](https://www.linkedin.com/jobs/) and you can add some search terms in to the "Search jobs" field. Some options include `javascript developer`, `react developer`, `front end developer`, `back end developer`, `full stack developer` or `software developer`. In the location, add either your current location or the place you would like to work in and hit "Search".
+  - In SQL, you can create a table of, let's say, `authors` and `books`, which you relate to a `bookOwner` table. In a NoSQL database, you essentially have to add the author and book to each owner that owns that book, meaning you can end up with a lot of duplicate entries.
 
-* Write down the names of 3-4 companies that have open positions that you've either heard of or seem like places (from the job description) you'd like to work at
+- **ACID vs. BASE**
+  - This one is tricky, so bear with us. ACID stands for Atomic, Consistent, Isolation, and Durable; and it covers the guarantee you get with most SQL databases. It ensures that data you write have to wait for the data to hit the storage disk before returning a successful completion response to the client. Great, right? This way, you know for sure that your data is stored and written&mdash;but if that data takes a while to write to the disk, it means the client may wait a while for the response. So in comes NoSQL databasing with BASE&mdash;Basically Available, Soft State, and Eventually Consistent&mdash;which apart from being quite a terrible acronym, doesn't mean a whole lot. But eventual consistency is faster because the application doesn't wait to see if the write persisted. If the data store captures the write but before it is persisted to disk, it returns succcess to the client and moves on to the next operation. The gain? Performance advantage and experience for the client, but at the cost of losing the data in an error condition.
 
-#### Step 2
+There are scores of articles on SQL vs. NoSQL databases on the internet. But the fact remains&mdash;they do their job, they do it well, and people like them. 
 
-* Using one of the companies you'd like to work at, locate their home page
-* Once on their home page, run a Lighthouse audit using "Applied Slow 4G" enabled
-* Note the areas that you could improve their website/web application and how, using the skills you learned this week, you could improve the audit scores
+NoSQL databases have many advantages, such as the following:
 
-### Looking to the Future
+- They can handle large volumes of structures and semi-structured data.
 
-_Developing your PWA Knowledge_
-Converting a website or an application to a PWA is a skill that takes practice, you can do so following these three key steps:
+- They're great for agile sprints, quick iteration, and frequent code modifications.
 
-**1. Analyze the website or application to identify problem areas.**
+- They make it easy to implement object-oriented coding paradigms such as ES6 JavaScript class syntax.
 
-* Are the images, CSS, and JavasScript files too large?
-* Could the CSS and JavaScript files be combined?
-* Could images be lazy-loaded?
-* Could the website or application be converted to a PWA?
+- They're efficient and cost-effective.
 
-**2. Develop solutions to reduce these problems.**
-* Compress the images
-* Use webpack to minimize CSS an JavaScript
-* Use webpack to implement tree-shaking
-* Lazy-load images so they load when they scroll into view
-* Assess whether the website or application could work as a PWA. Does the content update infrequently? Could it function offline? Would it make fewer network requests?
+All right&mdash;this should give you some meat to take with you into an interview. Just remember that if you're going into a technical interview, it helps to know the types of databases the employer uses and to have some opinions on what you think is good orbad, and _why_.
 
-**3. Implement the solutions you have developed.**
+### Look to the Future
 
-As a beginner, it can be hard to know what exactly the best steps are, but doing it multiple times will help you on your way.
+Take some time now to envision your future as a full-stack web developer. Complete the following task so you can be ready to get a job in just a few months:
 
-#### Your Task
+It helps to know what the current discussion is around topics you'll interview on. This way, you know what the development community is agreeing on, disagreeing about, etc. This week, we encourage you to find and read 2-3 articles about SQL and NoSQL databases and the arguments surrounding the discussion. Here is one you can get started with: [SQL vs. NoSQL: How Are They Different and What Are the Best SQL and NoSQL Database Systems?](https://www.xplenty.com/blog/the-sql-vs-nosql-difference/)
 
-* Once you've completed this week's homework and project, grab 2 or 3 websites / applications that you have built during the coding bootcamp so far and complete a Performance Audit on them
-
-* Write down where you can optimize those applications
-
-* Implement fixes for them
+Best of luck and see you next week! Don't forget the technical problems below.
 
 ### Technical Interview Preparation
 
@@ -65,18 +51,18 @@ Many companies use algorithm questions during the technical interview. We strong
 
 Please refer to the class repository to find these algorithms:
 
-Coding Algorithm #1: Is Armstrong
+- Coding Algorithm #1: Valid Brackets
 
-Coding Algorithm #2: Max Profit
+- Coding Algorithm #2: Min Increment for Unique
 
-Coding Algorithm #3: Smallest Difference
+- Coding Algorithm #3: Peak Finder
 
-For practice in a live, interview-style IDE, complete the following algorithm challenge. The solution will be discussed in the weekly recommended session.
+For practice in a live, interview-style IDE, complete the following algorithm challenge. The solution will be discussed in this week’s Virtual Class (Recommended).
 
 Once you start, you'll have seven days to complete it. After the seven days has elapsed, the challenge will close.
 
-- CodeSignal Algorithm: [Missing Number](https://app.codesignal.com/public-test/xttcwYyLzN9udSHRm/oEiyqtuFgGaFLj)
+- CodeSignal Algorithm: [Word Tumble](https://app.codesignal.com/public-test/W38trZ3bQdqpabN2X/SvJ3vebQ5oLSJu)
 
-![online-events](./assets/online-events.png)
+![Career Services online events](./assets/online-events.png)
 
-If you're interested in hearing more about the technical interviewing process, check out our [upcoming workshops!](https://careerservicesonlineevents.splashthat.com/)
+If you're interested in learning more about the technical interviewing process and practicing algorithms in a mock interview setting, attend one of our [upcoming workshops](https://careerservicesonlineevents.splashthat.com/)!
