@@ -8,15 +8,14 @@ const WorkoutSchema = new Schema({
         default: Date.now
     },
 
+    // excersizes: [],
 
-    excersizes: [],
-
-    // type: String,
-    // name: String,
-    // duration: Number,
-    // weight: Number,
-    // reps: Number,
-    // sets: Number,
+    type: String,
+    name: String,
+    duration: Number,
+    weight: Number,
+    reps: Number,
+    sets: Number,
 
 });
 
