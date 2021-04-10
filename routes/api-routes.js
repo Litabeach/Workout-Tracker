@@ -15,9 +15,9 @@ router.get("/workouts", (req, res) => {
   });
 
 
-// db.Library.create({ name: "Campus Library" })
-//   .then(dbLibrary => {
-//     console.log(dbLibrary);
+// db.Workout.create({ name: "Campus Library" })
+//   .then(dbWorkout => {
+//     console.log(dbWorkout);
 //   })
 //   .catch(({ message }) => {
 //     console.log(message);
@@ -34,8 +34,8 @@ router.get("/workouts", (req, res) => {
 // });
 
 // app.post("/submit", ({ body }, res) => {
-//   db.Book.create(body)
-//     .then(({ _id }) => db.Library.findOneAndUpdate({},
+//   db.Workout.create(body)
+//     .then(({ _id }) => db.Workout.findOneAndUpdate({},
 //       { $push: { books: _id } },
 //       { new: true })
 //     )
