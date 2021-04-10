@@ -2,7 +2,7 @@ const router = require("express").Router();
 const Workout = require("../models/Workout.js");
 
 
-router.get("/", (req, res) => {
+router.get("/workouts", (req, res) => {
     Workout.find({})
       .sort({ date: -1 })
       .then(dbWorkout => {
