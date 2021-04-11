@@ -2,30 +2,40 @@ const router = require("express").Router();
 const db = require("../models");
 
 
-router.get("/workouts", (req, res) => {
-    db.Workout.find({})
-      .sort({ date: -1 })
-      .then(dbWorkout => {
-        res.json(dbWorkout);
-        console.log(dbWorkout);
-      })
-      .catch(err => {
-        res.status(400).json(err);
-      });
-  });
 
+// GET / find - get last workout
+// find({}).sort({date: -1}).limit(1)
+router.get('/workouts', (req, res) => {
+  db.Workout.find({}, (err, lastWorkoutData) => {
+    if (err){
+      console.log(err);
+      return res.status(400).json(err);
+    }
+    res.json(lastWorkoutData);
+  })
+})
 
-  // router.post("/workouts", ({ body }, res) => {
-  //   db.Workout.create(body)
-  //     .then(dbWorkout => {
-  //       res.json(dbWorkout);
-  //     })
-  //     .catch(err => {
-  //       res.status(400).json(err);
-  //     });
-  // });
+// PUT / update - add exercise to last workout
+router.put('/workouts/:id', (req, res) => {
+  db.Workout.update({
+     _id: mongojs.ObjectId(params.id)
+    },
+    {
+      $push: 
+      { 
+        exercises: req.body
+      }
+    })
+  .then( updateData => {
+    res.json(updateData);
+  })
+  .catch(err => {
+    res.json(err);
+  })
+})
 
-  router.post('/workouts', (req, res) => {
+// POST / create - create new workout
+router.post('/workouts', (req, res) => {
   db.Workout.create(req.body)
   .then(newWorkout => {
     res.json(newWorkout);
@@ -36,91 +46,20 @@ router.get("/workouts", (req, res) => {
   })
 });
 
-// db.Workout.create({ name: "Excercise" })
-//   .then(dbWorkout => {
-//     console.log(dbWorkout);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
-
-// app.get("/", (req, res) => {
-//   db.Workout.find({})
-//     .then(dbWorkout => {
-//       res.json(dbWorkout);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-// app.post("/submit", ({ body }, res) => {
-//   db.Workout.create(body)
-//     .then(({ _id }) => db.Workout.findOneAndUpdate({},
-//       { $push: { books: _id } },
-//       { new: true })
-//     )
-//     .then(dbLibrary => {
-//       res.json(dbLibrary);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-// app.get("/books", (req, res) => {
-//   db.Book.find({})
-//     .then(dbBook => {
-//       res.json(dbBook);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-// app.get("/library", (req, res) => {
-//   db.Library.find({})
-//     .then(dbLibrary => {
-//       res.json(dbLibrary);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-// app.get("/populated", (req, res) => {
-//   db.Library.find({})
-//     .populate("books")
-//     .then(dbLibrary => {
-//       res.json(dbLibrary);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-
-
-// router.post("/api/transaction", ({ body }, res) => {
-//   Transaction.create(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
-
-// router.post("/api/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
-
+// GET /find - get workouts in range
+router.get('/workouts/range', (req, res) => {
+  db.Workout.find().sort({day: -1}).limit(7)
+  .then(WorkoutData => {
+    //console.log(WorkoutData);
+    return res.json(WorkoutData);
+  })
+  .catch(err => {
+    if (err){
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  })
+});
 
 
 module.exports = router;
