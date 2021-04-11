@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const Workout = require("../models/Workout.js");
+const db = require("../models");
 
 
 router.get("/workouts", (req, res) => {
-    Workout.find({})
+    db.Workout.find({})
       .sort({ date: -1 })
       .then(dbWorkout => {
         res.json(dbWorkout);
@@ -15,7 +15,28 @@ router.get("/workouts", (req, res) => {
   });
 
 
-// db.Workout.create({ name: "Campus Library" })
+  // router.post("/workouts", ({ body }, res) => {
+  //   db.Workout.create(body)
+  //     .then(dbWorkout => {
+  //       res.json(dbWorkout);
+  //     })
+  //     .catch(err => {
+  //       res.status(400).json(err);
+  //     });
+  // });
+
+  router.post('/workouts', (req, res) => {
+  db.Workout.create(req.body)
+  .then(newWorkout => {
+    res.json(newWorkout);
+  })
+  .catch(err => {
+    console.log(err);
+    res.json(err);
+  })
+});
+
+// db.Workout.create({ name: "Excercise" })
 //   .then(dbWorkout => {
 //     console.log(dbWorkout);
 //   })
