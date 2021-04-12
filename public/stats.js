@@ -179,6 +179,8 @@ function calculateTotalWeight(data) {
   data.forEach((workout) => {
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
       if (type === 'resistance') {
+        console.log(total)
+        console.log(weight)
         return total + weight;
       } else {
         return total;

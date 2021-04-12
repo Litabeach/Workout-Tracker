@@ -15,25 +15,6 @@ router.get('/workouts', (req, res) => {
   })
 })
 
-// PUT / update - add exercise to last workout
-router.put('/workouts/:id', (req, res) => {
-  db.Workout.update({
-     _id: mongojs.ObjectId(params.id)
-    },
-    {
-      $push: 
-      { 
-        exercises: req.body
-      }
-    })
-  .then( updateData => {
-    res.json(updateData);
-  })
-  .catch(err => {
-    res.json(err);
-  })
-})
-
 // POST / create - create new workout
 router.post('/workouts', (req, res) => {
   db.Workout.create(req.body)
@@ -46,11 +27,32 @@ router.post('/workouts', (req, res) => {
   })
 });
 
+// PUT / update - add exercise to last workout
+
+router.put('/workouts/:id', (req, res) => {
+  db.Workout.findByIdAndUpdate({
+    _id: req.params.id
+  },
+  {
+    $push: 
+    { 
+      exercises: req.body
+    }
+  })
+  .then( updateData => {
+    res.json(updateData);
+  })
+  .catch(err => {
+    res.json(err);
+  })
+})
+
+
 // GET /find - get workouts in range
 router.get('/workouts/range', (req, res) => {
   db.Workout.find().sort({day: -1}).limit(7)
   .then(WorkoutData => {
-    //console.log(WorkoutData);
+    console.log(WorkoutData);
     return res.json(WorkoutData);
   })
   .catch(err => {
