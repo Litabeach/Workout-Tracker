@@ -59,11 +59,11 @@ Workout.aggregate([
 });
 
 
-// // GET /find - get workouts in range
+// // GET /find - get workouts
 // router.get('/workouts/range', (req, res) => {
 //   Workout.find().sort({day: -1}).limit(7).sort( { day: 1 })
 //   .then(WorkoutData => {
-//     console.log(WorkoutData);
+//     //console.log(WorkoutData);
 //     return res.json(WorkoutData);
 //   })
 //   .catch(err => {
@@ -73,7 +73,6 @@ Workout.aggregate([
 //     }
 //   })
 // });
-
 
 // db.Workout.aggregate( [
 //   {
