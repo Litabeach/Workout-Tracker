@@ -65,7 +65,6 @@ WorkoutSchema.virtual('totalDuration').get(function () {
     return this.exercises.reduce((currTotal, { duration }) => currTotal + duration, 0);
 })
 
-
 // WorkoutSchema.virtual('totalWeight').get(function () {
 //     return this.exercises.reduce((currTotal, { weight }) => currTotal + weight, 0);
 // })
