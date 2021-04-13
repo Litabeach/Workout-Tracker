@@ -2,7 +2,7 @@
 
 ## Description 
 
-Amn app to view, create, and track daily workouts. Users are able to log multiple exercises in a workout on a given day. The name, type, weight, sets, reps, and duration of exercise are logged. Statistics for the last 7 workouts workouts are available on the stats page.<br>
+An app to view, create, and track daily workouts. Users are able to log multiple exercises in a workout on a given day. The name, type, weight, sets, reps, and duration of exercise are logged. Statistics for the last 7 workouts workouts are available on the stats page. Built with MongoDB, Mongoose, Node and Express.<br>
 Check out the app on Heroku: https://shielded-dusk-73422.herokuapp.com/
 
 
@@ -25,8 +25,8 @@ Run 'npm i', 'node seeds/seed.js' then 'node server.js' from the command line to
 Visit the homepage to view most recent workout, create a new workout, or add to the latest workout. 
 
 ![screenshot of homepage](public/images/homepage.png)
-![screenshot of dashboard](public/images/dashboard.png)
-![screenshot of upadate](public/images/update.png)
+![screenshot of dashboard](public/images/stats.png)
+![screenshot of create new workout](public/images/create.png)
 
 
 ## Credits
