@@ -17,7 +17,7 @@ Check out the app on Heroku: https://shielded-dusk-73422.herokuapp.com/
 
 ## Installation
 
-Run 'npm i', 'node seeds/seed.js' then 'node server.js' from the command line to run the server. This app can be used without installation by visiting the Heroku site where it is deployed. https://shielded-dusk-73422.herokuapp.com/
+Run 'npm i', 'node seeders/seed.js' then 'node server.js' from the command line to run the server. This app can be used without installation by visiting the Heroku site where it is deployed. https://shielded-dusk-73422.herokuapp.com/
 
 
 ## Usage 
