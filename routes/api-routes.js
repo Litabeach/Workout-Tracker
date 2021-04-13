@@ -59,7 +59,7 @@ Workout.aggregate([
     }
 },
 ])
-.sort({ day: - 1 }).limit(7).sort( { day: 1 })
+.sort({ _id : - 1 }).limit(7).sort( { day: 1 })
 .then(workout => {
   res.json(workout);
 })
