@@ -27,7 +27,6 @@ router.post('/workouts', (req, res) => {
 });
 
 // PUT / update - add exercise to last workout
-//add exercise to workout
 router.put("/workouts/:id", ({ body, params }, res) => {
   Workout.findByIdAndUpdate(params.id,
       {$push: {exercises: body}},
@@ -40,7 +39,7 @@ router.put("/workouts/:id", ({ body, params }, res) => {
     });
 });
 
-// stats page - buggy
+// stats page - buggy. Get last 7 workouts.
 router.get("/workouts/range", (req, res) => {
 Workout.aggregate([
 {
