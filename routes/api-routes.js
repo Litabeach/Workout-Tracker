@@ -46,7 +46,9 @@ router.put("/workouts/:id", ({ body, params }, res) => {
     });
 });
 
-// stats page - buggy. Get last 7 workouts.
+
+
+// stats page - buggy. Get last 7 workouts. Add totalDuration field.
 router.get("/workouts/range", (req, res) => {
 // Workout.find({})
 Workout.aggregate([
@@ -65,22 +67,6 @@ Workout.aggregate([
   res.json(err);
 });
 });
-
-
-// // GET /find - get workouts
-// router.get('/workouts/range', (req, res) => {
-//   Workout.find().sort({day: -1}).limit(7).sort( { day: 1 })
-//   .then(WorkoutData => {
-//     //console.log(WorkoutData);
-//     return res.json(WorkoutData);
-//   })
-//   .catch(err => {
-//     if (err){
-//       console.log(err);
-//       return res.status(500).json(err);
-//     }
-//   })
-// });
 
 
 module.exports = router;

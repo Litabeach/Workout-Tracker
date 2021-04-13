@@ -183,7 +183,7 @@ function calculateTotalWeight(data) {
         // console.log("weight", weight)
         return total + weight;
       } else {
-        console.log("total", total)
+        console.log("total weight", total)
         return total;
        
       }
