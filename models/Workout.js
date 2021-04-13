@@ -52,18 +52,17 @@ const WorkoutSchema = new Schema({
         },
     }],
 },
-
-    {
-        toJSON: {
-            //include any virtual properties when data is requested
-            virtuals: true
-        }
-    }
+//     {
+//         toJSON: {
+//             //include any virtual properties when data is requested
+//             virtuals: true
+//         }
+//     }
     );
 
-WorkoutSchema.virtual('totalDuration').get(function () {
-    return this.exercises.reduce((currTotal, { duration }) => currTotal + duration, 0);
-})
+// WorkoutSchema.virtual('totalDuration').get(function () {
+//     return this.exercises.reduce((currTotal, { duration }) => currTotal + duration, 0);
+// })
 
 // WorkoutSchema.virtual('totalWeight').get(function () {
 //     return this.exercises.reduce((currTotal, { weight }) => currTotal + weight, 0);
