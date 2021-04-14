@@ -8,7 +8,6 @@ router.get("/workouts/", (req, res) => {
   Workout.aggregate([
   {
       $addFields: {
-          // totalWeight: { $sum: "$exercises.weight" },
           totalDuration: { $sum: "$exercises.duration" }
       }
   },
@@ -50,18 +49,18 @@ router.put("/workouts/:id", ({ body, params }, res) => {
 
 // stats page - buggy. Get last 7 workouts. Add totalDuration field.
 router.get("/workouts/range", (req, res) => {
-// Workout.find({})
 Workout.aggregate([
 {
     $addFields: {
-        // totalWeight: { $sum: "$exercises.weight" },
         totalDuration: { $sum: "$exercises.duration" }
     }
 },
 ])
-.sort({ _id : - 1 }).limit(7).sort( { day: 1 })
-.then(workout => {
-  res.json(workout);
+.sort({ _id : - 1 }).limit(7)
+.then(workoutData => {
+  console.log(workoutData)
+  console.log(workoutData.map((dbItem)=>dbItem.exercises))
+  res.json(workoutData);
 })
 .catch(err => {
   res.json(err);

@@ -25,6 +25,7 @@ function populateChart(data) {
   let durations = data.map(({ totalDuration }) => totalDuration);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
+  console.log(workouts, "in pop chart")
   const colors = generatePalette();
 
   let line = document.querySelector('#canvas').getContext('2d');
@@ -132,6 +133,10 @@ function populateChart(data) {
     },
   });
 
+console.table(workouts, "workouts")
+console.log(durations, "durations")
+
+
   let pieChart = new Chart(pie, {
     type: 'pie',
     data: {
@@ -179,13 +184,12 @@ function calculateTotalWeight(data) {
   data.forEach((workout) => {
     const workoutTotal = workout.exercises.reduce((total, { type, weight }) => {
       if (type === 'resistance') {
-        // console.log("total", total)
+            // console.log("total", total)
         // console.log("weight", weight)
         return total + weight;
       } else {
         console.log("total weight", total)
         return total;
-       
       }
     }, 0);
 
@@ -203,6 +207,7 @@ function workoutNames(data) {
       workouts.push(exercise.name);
       // console.log(workouts, "from stats")
     });
+
   });
 
   // return de-duplicated array with JavaScript `Set` object
