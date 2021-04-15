@@ -32,6 +32,7 @@ Visit the homepage to view most recent workout, create a new workout, or add to 
 ## Credits
 
 Sara Neves Pereira
+Nathan Perfetti
 
 
 ## License
@@ -47,6 +48,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ## Badges
 
 ![Built with Javascript badge](https://img.shields.io/badge/Built_with-Javascript-red) 
-![Built with Mongoose badge](https://img.shields.io/badge/Built_with-Mpongoose-blue) 
+![Built with Mongoose badge](https://img.shields.io/badge/Built_with-Mongoose-blue) 
 ![Built with MongoDB badge](https://img.shields.io/badge/Built_with-MongoDB-green) 
 
