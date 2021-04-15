@@ -75,7 +75,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
-        name: "Bench Press",
+        name: "Leg Press",
         duration: 20,
         weight: 300,
         reps: 10,
@@ -101,7 +101,7 @@ let workoutSeed = [
     exercises: [
       {
         type: "resistance",
-        name: "Bench Press",
+        name: "Calf Press",
         duration: 20,
         weight: 300,
         reps: 10,
